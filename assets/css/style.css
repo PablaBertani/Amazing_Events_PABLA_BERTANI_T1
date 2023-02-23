@@ -1,0 +1,45 @@
+* {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .row{
+    margin-right: 0;
+  } 
+
+ .div-title{
+    background-color: #F08080;
+  }
+
+  i{
+    font-size: 1.7em;
+  }
+
+  /* .card{
+    height: 350px;
+    width: 290px;
+  }
+  .card-imagen,.card-body{
+    height: 100px;
+   
+  }
+
+  .card-imagen img{
+    max-width: 100%;
+  }
+  .card-body{
+    position: absolute;
+    left: 0;
+    top: 100%;
+    transform: translate(0,-100%);
+  }
+
+  .div-h1{
+    background-color: blueviolet;
+  }
+
+  .row{
+    margin-right: 0;
+  } */
