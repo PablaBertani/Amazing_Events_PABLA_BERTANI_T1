@@ -50,7 +50,12 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav justify-content-end">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="/index.html"
+                  >Home</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/upcoming_events.html"
@@ -70,109 +75,71 @@
           </div>
         </div>
       </nav>
-      <div
-        class="container-fluid bg-gradient text-white text-center div-title"
-      >
+      <div class="container-fluid bg-gradient text-white text-center div-title">
         <h1>Contact Us</h1>
       </div>
     </header>
     <main>
-      <form action="">
-        <div class="row justify-content-between pt-3 px-2">
-          <div class="col-6">
-            <div class="form-check form-check-inline">
+
+      <form>
+        <div class="d-flex align-items-center justify-content-center">
+          <div class="my-4">
+            <div class="mb-3">
+              <label for="name" class="form-label" >Name</label>
               <input
-                class="form-check-input"
-                type="checkbox"
-                id="inlineCheckbox1"
-                value="option1"
+                type="text"
+                class="form-control"
+                id="name"
+                required
               />
-              <label class="form-check-label" for="inlineCheckbox1"
-                >Category</label
-              >
             </div>
-            <div class="form-check form-check-inline">
+            <div class="mb-3">
+              <label for="mail" class="form-label">Email</label>
               <input
-                class="form-check-input"
-                type="checkbox"
-                id="inlineCheckbox1"
-                value="option1"
+                type="email"
+                class="form-control"
+                id="mail"
+                required
               />
-              <label class="form-check-label" for="inlineCheckbox1"
-                >Category</label
-              >
             </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="inlineCheckbox1"
-                value="option1"
-              />
-              <label class="form-check-label" for="inlineCheckbox1"
-                >Category</label
-              >
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control"
+                name="message"
+                id="message"
+                cols="30"
+                rows="7"
+              ></textarea>
+            
             </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="inlineCheckbox1"
-                value="option1"
-              />
-              <label class="form-check-label" for="inlineCheckbox1"
-                >Category</label
-              >
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="inlineCheckbox1"
-                value="option1"
-              />
-              <label class="form-check-label" for="inlineCheckbox1"
-                >Category</label
-              >
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="search" />
-              <button
-                class="btn btn-outline-secondary"
-                type="button"
-                id="button-addon2"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-search"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-                  />
-                </svg>
-              </button>
+            <div class="d-flex align-items-center justify-content-center">
+              <button type="submit" class="btn-form">Submit</button>
             </div>
           </div>
         </div>
       </form>
+ 
     </main>
 
     <footer>
-      <div class="container-fluid bg-body-secondary .bg-secondary.bg-gradient  mt-3" data-bs-theme="dark">
+      <div
+        class="container-fluid bg-body-secondary .bg-secondary.bg-gradient mt-3"
+        data-bs-theme="dark"
+      >
         <div class="row justify-content-around pt-3">
           <div class="col-4 ps-0">
-            <a href="#" class="card-link"><i class="fa-brands fa-instagram pe-4"></i></a>
-            <a href="#" class="card-link"><i class="fa-brands fa-square-facebook pe-4"></i></a>
-            <a href="#" class="card-link"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="card-link"
+              ><i class="fa-brands fa-instagram pe-4"></i
+            ></a>
+            <a href="#" class="card-link"
+              ><i class="fa-brands fa-square-facebook pe-4"></i
+            ></a>
+            <a href="#" class="card-link"
+              ><i class="fa-brands fa-whatsapp"></i
+            ></a>
           </div>
           <div class="col-4 text-white text-end fs-5">
-           <p >Cohort</p>
+            <p>Cohort</p>
           </div>
         </div>
       </div>
