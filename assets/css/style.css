@@ -1,27 +1,103 @@
 * {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .row{
-    margin-right: 0;
-  } 
+.row {
+  margin-right: 0;
+}
 
- .div-title{
-    background-color: #F08080;
-  }
+.div-title {
+  background-color: #f08080;
+}
 
-  i{
-    font-size: 1.7em;
-  }
+i {
+  font-size: 1.7em;
+}
 
-  
+/* footer{
+  min-height: 10vh;
+} */
+/*card*/
+.card{
+  -webkit-box-shadow: -8px -8px 5px 0px #ff80808f;
+  -moz-box-shadow: -8x -8px 5px 0px#ff80808f;
+  box-shadow: -8x -8x 5px 0px #ff80808f;
+ 
+}
+
+.img-card{
+  height: 180px;
+  width: 270px;
+}
+
+span p{
+  font-weight: bold;
+}
+
+/* .btn-see{
+  background-color: #f08080;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+  padding: 10px 10px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-see:hover {
+  background-color: #223094;
+}
+
+ */
 
 
 /* CSS */
-.btn-form{
+.btn-more {
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 400;
+  line-height: 23px;
+  outline: none;
+  padding: .75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btn-more:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  background-color: #f08080;
+  transform: translate3d(0, 2px, 0);
+}
+
+.btn-more:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+/* CSS */
+.btn-form {
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -38,7 +114,7 @@
 
 .btn-form:after {
   content: "";
-  background-color: #F08080;
+  background-color: #f08080;
   width: 100%;
   z-index: -1;
   position: absolute;
@@ -51,7 +127,6 @@
 .btn-form:hover:after {
   top: 0px;
   left: 0px;
-  
 }
 
 @media (min-width: 768px) {
@@ -60,7 +135,24 @@
   }
 }
 
-  /* .card{
+/* table */
+
+.table-stats {
+  border-color: black;
+  
+}
+
+th {
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+thead {
+  background-color: #f2a5a5c5;
+  color: rgba(44, 41, 41, 0.931);
+}
+
+/* .card{
     height: 350px;
     width: 290px;
   }
