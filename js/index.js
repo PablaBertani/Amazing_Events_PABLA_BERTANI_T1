@@ -23,4 +23,5 @@ function makingCards() {
 }
 
 makingCards(allEvents);
+
 conteinerCard.innerHTML = stringHtml;

@@ -4,21 +4,11 @@ const currentDate = data.currentDate;
 const allEvents = data.events;
 
 const pastEvents = [];
-//console.log(currentDate);
+
 
 let conteinerCard = document.getElementById("conteiner-cardPastEvents");
 
 let stringHtml = ``;
-
-// console.log(allEvents)
-
-// for (let i = 0; i < allEvents.length; i++) {
-//   if (allEvents[i].date < currentDate) {
-//     pastEvents.push(allEvents[i]);
-//   }
-// }
-
-// console.log(pastEvents);
 
 function makingCards() {
   for (let i = 0; i < allEvents.length; i++) {

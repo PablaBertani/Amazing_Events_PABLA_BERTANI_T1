@@ -4,25 +4,9 @@ const allEvents = data.events;
 
 const upcomingEvents = [];
 
-// console.log(currentDate);
-
-// console.log(allEvents)
-
-// for (let i = 0; i < allEvents.length; i++) {
-//   if (allEvents[i].date > currentDate) {
-//     upcomingEvents.push(allEvents[i]);
-//   }
-// }
-
-// console.log(upcomingEvents);
-
-
 let conteinerCard = document.getElementById("conteiner-cardUpcomingEvents");
 
 let stringHtml = ``;
-
-
-
 
 function makingCards() {
   for (let i = 0; i < allEvents.length; i++) {
