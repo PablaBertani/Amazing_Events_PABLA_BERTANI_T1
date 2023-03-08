@@ -39,6 +39,10 @@
     height: 180px;
     width: 270px;
   }
+
+  .card-title{
+    font-weight: bold;
+  }
   
   span p {
     font-weight: bold;

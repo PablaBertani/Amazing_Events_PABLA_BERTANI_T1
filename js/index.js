@@ -7,7 +7,7 @@ function makingCards() {
   for (let i = 0; i < allEvents.length; i++) {
     stringHtml += `
   <div class="card position-relative" style="width: 17rem;">
-    <img src=${allEvents[i].image} class="card-img-top img-card" alt="family in the cinema" >
+    <img src=${allEvents[i].image} class="card-img-top img-card" alt=${allEvents[i].name} >
       <div class="card-body">
         <h5 class="card-title">${allEvents[i].name}</h5>
         <p class="card-text">${allEvents[i].date}</p>
@@ -22,6 +22,6 @@ function makingCards() {
   }
 }
 
-makingCards(allEvents);
+makingCards();
 
 conteinerCard.innerHTML = stringHtml;
