@@ -27,6 +27,11 @@
     font-size: 1.7em;
   }
   
+  .btnSearch:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+    background-color: #f08080;
+    transform: translate(0, 2px, 0);
+  }
   
   /*card*/
   .card {
