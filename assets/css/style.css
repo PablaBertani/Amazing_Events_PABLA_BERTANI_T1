@@ -100,12 +100,14 @@
   /* btn formulario */
   
   
-  textarea:focus, input[type]:focus{
+  textarea:focus, input[type='checkbox']:focus{
       border-color: rgb(240, 128, 128);
       box-shadow: 0 0 10px  rgb(240, 128, 128);
       outline: none;
   }
   
+ 
+
   textarea:hover{
     outline: none !important;
     border-color: rgb(240, 128, 128);
