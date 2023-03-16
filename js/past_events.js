@@ -4,9 +4,9 @@ const allEvents = data.events;
 
 // const pastEvents = [];
 
-let conteinerCard = document.getElementById("conteiner-cardPastEvents");
+const conteinerCard = document.getElementById("conteiner-cardPastEvents");
 
-let formCheckbox = document.getElementById("div-checkbox");
+const formCheckbox = document.getElementById("div-checkbox");
 
 const pastEvents = allEvents.filter(events => events.date < currentDate);
 

@@ -36,7 +36,7 @@ function makingCards(array) {
       </div>
       <span class="row justify-content-around mb-3">
         <p class="col-5 pt-2">$${element.price}</p>
-        <a href="./details.html?id=${element.id}" class="col-5 btn-more">See More</a>
+        <a href="./details.html?id=${element._id}" class="col-5 btn-more">See More</a>
       </span>
  </div>
   `;

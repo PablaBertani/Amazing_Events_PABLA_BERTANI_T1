@@ -4,9 +4,9 @@ const allEvents = data.events;
 
 // const upcomingEvents = [];
 
-let conteinerCard = document.getElementById("conteiner-cardUpcomingEvents");
+const conteinerCard = document.getElementById("conteiner-cardUpcomingEvents");
 
-let formCheckbox = document.getElementById("div-checkbox");
+const formCheckbox = document.getElementById("div-checkbox");
 
 const upcomingEvents = allEvents.filter(events => events.date > currentDate);
 
