@@ -1,7 +1,9 @@
 const allEvents = data.events;
+
 const conteinerCard = document.getElementById("conteiner-card");
+
 const formCheckbox = document.getElementById("div-checkbox");
-//const inputForm = document.getElementById("input-form");
+
 const input = document.querySelector("input");
 
 input.addEventListener("input", bothFilters);
@@ -46,18 +48,9 @@ function makingCards(array) {
 
 function makingCheckboxs(array) {
   let allCategories = array.map((events) => events.category);
-  // console.log(allCategories);
 
   let allCategoriesSorter = new Set(
-    allCategories.sort((a, b) => {
-      if (a < b) {
-        return -1;
-      }
-      if (a > b) {
-        return 1;
-      }
-      return 0;
-    })
+    allCategories.sort((a, b) => a.localeCompare(b))
   );
   console.log(allCategories);
 
@@ -86,7 +79,7 @@ function checkboxFilter(array) {
   let allCheckboxes = Array.from(
     document.querySelectorAll("input[type='checkbox']")
   );
-  //console.log(allCheckboxes);
+
   let checkboxCheck = allCheckboxes.filter((check) => check.checked);
 
   if (checkboxCheck.length == 0) {
@@ -98,7 +91,7 @@ function checkboxFilter(array) {
   let eventsFilter = array.filter((element) =>
     events.includes(element.category)
   );
-  //console.log(eventsFilter);
+
   return eventsFilter;
 }
 
