@@ -1,27 +1,84 @@
-const currentDate = data.currentDate;
+fetch("https://mindhub-xj03.onrender.com/api/amazing")
+  .then((response) => response.json())
+  .then((events) => {
+    const allEvents = events.events;
 
-const allEvents = data.events;
+    const currentDate = events.currentDate;
+
+    const pastEvents = allEvents.filter((events) => events.date < currentDate);
+
+    input.addEventListener("input", bothFilters);
+
+    formCheckbox.addEventListener("change", bothFilters);
+
+    makingCards(pastEvents);
+
+    makingCheckboxs(pastEvents);
+    
+
+    function bothFilters() {
+      let textFilter = searcherEvents(pastEvents, input.value);
+      let checkFilter = checkboxFilter(textFilter);
+      makingCards(checkFilter);
+    }
+
+    function checkboxFilter(array) {
+      let allCheckboxes = Array.from(
+        document.querySelectorAll("input[type='checkbox']")
+      );
+    
+      let checkboxCheck = allCheckboxes.filter((check) => check.checked);
+    
+      if (checkboxCheck.length == 0) {
+        return array;
+      }
+    
+      let events = checkboxCheck.map((check) => check.value);
+    
+      let eventsFilter = array.filter((element) =>
+        events.includes(element.category)
+      );
+    
+      return eventsFilter;
+    }
+    
+    function searcherEvents(array, text) {
+      let searcherText = array.filter((element) =>
+        element.name.toLowerCase().includes(text.toLowerCase())
+      );
+      return searcherText;
+    }
+    
+  });
+
+
+
+
+
+//const currentDate = data.currentDate;
+
+//const allEvents = data.events;
 
 const conteinerCard = document.getElementById("conteiner-cardPastEvents");
 
 const formCheckbox = document.getElementById("div-checkbox");
 
-const pastEvents = allEvents.filter((events) => events.date < currentDate);
+// const pastEvents = allEvents.filter((events) => events.date < currentDate);
 
 const input = document.querySelector("input");
 
-input.addEventListener("input", bothFilters);
+// input.addEventListener("input", bothFilters);
 
-formCheckbox.addEventListener("change", bothFilters);
+// formCheckbox.addEventListener("change", bothFilters);
 
-makingCards(pastEvents);
-makingCheckboxs(pastEvents);
+// makingCards(pastEvents);
+// makingCheckboxs(pastEvents);
 
-function bothFilters() {
-  let textFilter = searcherEvents(pastEvents, input.value);
-  let checkFilter = checkboxFilter(textFilter);
-  makingCards(checkFilter);
-}
+// function bothFilters() {
+//   let textFilter = searcherEvents(pastEvents, input.value);
+//   let checkFilter = checkboxFilter(textFilter);
+//   makingCards(checkFilter);
+// }
 
 function makingCards(array) {
   if (array.length == 0) {
@@ -79,29 +136,29 @@ function makingCheckboxs(array) {
   formCheckbox.innerHTML = stringForm;
 }
 
-function checkboxFilter(array) {
-  let allCheckboxes = Array.from(
-    document.querySelectorAll("input[type='checkbox']")
-  );
+// function checkboxFilter(array) {
+//   let allCheckboxes = Array.from(
+//     document.querySelectorAll("input[type='checkbox']")
+//   );
 
-  let checkboxCheck = allCheckboxes.filter((check) => check.checked);
+//   let checkboxCheck = allCheckboxes.filter((check) => check.checked);
 
-  if (checkboxCheck.length == 0) {
-    return array;
-  }
+//   if (checkboxCheck.length == 0) {
+//     return array;
+//   }
 
-  let events = checkboxCheck.map((check) => check.value);
+//   let events = checkboxCheck.map((check) => check.value);
 
-  let eventsFilter = array.filter((element) =>
-    events.includes(element.category)
-  );
+//   let eventsFilter = array.filter((element) =>
+//     events.includes(element.category)
+//   );
 
-  return eventsFilter;
-}
+//   return eventsFilter;
+// }
 
-function searcherEvents(array, text) {
-  let searcherText = array.filter((element) =>
-    element.name.toLowerCase().includes(text.toLowerCase())
-  );
-  return searcherText;
-}
+// function searcherEvents(array, text) {
+//   let searcherText = array.filter((element) =>
+//     element.name.toLowerCase().includes(text.toLowerCase())
+//   );
+//   return searcherText;
+// }

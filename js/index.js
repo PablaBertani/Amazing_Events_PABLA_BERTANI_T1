@@ -1,4 +1,53 @@
-const allEvents = data.events;
+fetch("https://mindhub-xj03.onrender.com/api/amazing")
+  .then((response) => response.json())
+  .then((events) => {
+    const allEvents = events.events;
+
+    input.addEventListener("input", bothFilters);
+
+    formCheckbox.addEventListener("change", bothFilters);
+
+
+    makingCards(allEvents);
+
+    makingCheckboxs(allEvents);
+
+
+
+    function bothFilters() {
+      let textFilter = searcherEvents(allEvents, input.value);
+      let checkFilter = checkboxFilter(textFilter);
+      makingCards(checkFilter);
+    }
+
+    function checkboxFilter(array) {
+      let allCheckboxes = Array.from(
+        document.querySelectorAll("input[type='checkbox']")
+      );
+    
+      let checkboxCheck = allCheckboxes.filter((check) => check.checked);
+    
+      if (checkboxCheck.length == 0) {
+        return array;
+      }
+    
+      let events = checkboxCheck.map((check) => check.value);
+    
+      let eventsFilter = array.filter((element) =>
+        events.includes(element.category)
+      );
+    
+      return eventsFilter;
+    }
+    
+    function searcherEvents(array, text) {
+      let searcherText = array.filter((element) =>
+        element.name.toLowerCase().includes(text.toLowerCase())
+      );
+      return searcherText;
+    }
+    
+  });
 
 const conteinerCard = document.getElementById("conteiner-card");
 
@@ -6,18 +55,8 @@ const formCheckbox = document.getElementById("div-checkbox");
 
 const input = document.querySelector("input");
 
-input.addEventListener("input", bothFilters);
 
-formCheckbox.addEventListener("change", bothFilters);
 
-makingCards(allEvents);
-makingCheckboxs(allEvents);
-
-function bothFilters() {
-  let textFilter = searcherEvents(allEvents, input.value);
-  let checkFilter = checkboxFilter(textFilter);
-  makingCards(checkFilter);
-}
 
 function makingCards(array) {
   if (array.length == 0) {
@@ -75,29 +114,3 @@ function makingCheckboxs(array) {
   formCheckbox.innerHTML = stringForm;
 }
 
-function checkboxFilter(array) {
-  let allCheckboxes = Array.from(
-    document.querySelectorAll("input[type='checkbox']")
-  );
-
-  let checkboxCheck = allCheckboxes.filter((check) => check.checked);
-
-  if (checkboxCheck.length == 0) {
-    return array;
-  }
-
-  let events = checkboxCheck.map((check) => check.value);
-
-  let eventsFilter = array.filter((element) =>
-    events.includes(element.category)
-  );
-
-  return eventsFilter;
-}
-
-function searcherEvents(array, text) {
-  let searcherText = array.filter((element) =>
-    element.name.toLowerCase().includes(text.toLowerCase())
-  );
-  return searcherText;
-}
