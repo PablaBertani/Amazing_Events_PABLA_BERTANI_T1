@@ -66,37 +66,50 @@ function attendance(array) {
 
 function categories(array) {
   //categorias
-  let allCategories = array.map((events) => events.category);
+  const allCategories = array.map((events) => events.category);
 
-  let allCategoriesSorter = Array.from(
+  const allCategoriesSorter = Array.from(
     new Set(allCategories.sort((a, b) => a.localeCompare(b)))
   );
 
-  console.log(allCategoriesSorter);
+  //console.log(allCategoriesSorter);
 
   //ganancias
-
-
 
   let stringSecondTable = ``;
 
   allCategoriesSorter.forEach(category => {
    
 
-    let allEventsCategories = array.filter((events) => category == events.category);
-    console.log(allEventsCategories)
+    const allEventsCategories = array.filter((events) => category == events.category);
+    //console.log(allEventsCategories)
  
-    let allEstimate = allEventsCategories.map((events) => events.estimate);
-   console.log(allEstimate)
+    const allEstimate = allEventsCategories.map((events) => events.estimate);
+       // console.log(allEstimate)
  
-    let revenues = allEstimate.reduce((acc,revenue,i)=> acc + revenue * allEventsCategories[i].price, 0 );
-   console.log(revenues)
+       const revenues = allEstimate.reduce((acc,revenue,i)=> acc + revenue * allEventsCategories[i].price, 0 );
+   //console.log(revenues)
+
+   //Asistencia
+
+   const allCapacityPerEvent = allEventsCategories.map((events) => events.capacity);
+  console.log(allCapacityPerEvent)
+
+
+  const sumOfAttenance = allEstimate.reduce((acc,estimate)=>acc + estimate);
+
+ // console.log(sumOfAttenance)
+
+ const sumOfCategories = allCapacityPerEvent.reduce((acc,capacity)=>acc + capacity);
+
+ const percentageAttenance = (sumOfAttenance/sumOfCategories)*100;
+ console.log(percentageAttenance)
 
     stringSecondTable += `
     <tr>
       <td>${category}</td>
-      <td>$ ${revenues}</td>
-      <td></td>
+      <td>$${revenues}</td>
+      <td>${percentageAttenance.toFixed(2)} %</td>
     </tr>
     
   `;
@@ -107,3 +120,6 @@ function categories(array) {
  
 }
 
+// Porcentaje de asistencia: (asistencia / capacidad) x 100. (asistencia = assistance o estimate).
+
+// porcentaje: suman toda la asistencia de los eventos de esa categoría, después suman toda la capacidad de los eventos de esa categoría y ahí hacen el porcentaje total.
