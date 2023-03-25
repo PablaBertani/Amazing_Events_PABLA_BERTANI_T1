@@ -170,16 +170,27 @@ textarea:hover{
   border-color: black;
 }
 
-th {
+thead {
+  background-color: #ffa0a0e9;
+  color: rgba(0, 0, 0, 0.931);
+}
+
+.table-title {
   font-weight: bold;
   font-size: 1.4em;
+  text-align: center;
 }
 
-thead {
-  background-color: #f2a5a5c5;
-  color: rgba(44, 41, 41, 0.931);
+th,td{
+  text-align: center;
 }
 
+
+
+.td-category{
+  font-weight: bold;
+  text-align: left;
+}
 
 
 /*details*/

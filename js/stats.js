@@ -11,15 +11,16 @@ fetch("https://mindhub-xj03.onrender.com/api/amazing")
       (events) => events.date > currentDate
     );
 
-    //const eventsPercentageOne = document.getElementById("events_percentage1");
-
     attendance(pastEvents);
-    categories(upcomingEvents);
+    upcomingEventsStatistics(upcomingEvents);
+    pastEventsStatistics(pastEvents);
   });
 
 const eventsFirstTable = document.getElementById("events_first_table");
 
 const eventsSecondTable = document.getElementById("events_second_table");
+
+const eventsThirdTable = document.getElementById("events_third_table");
 
 function attendance(array) {
   //max asistence
@@ -57,69 +58,113 @@ function attendance(array) {
   let stringFirstTable = ``;
 
   stringFirstTable += `
-        <td>${maxAsistencePercentage.toFixed(2)}% ${maxAsistenceEvent.name}</td>
-        <td>${minAsistencePercentage.toFixed(2)}% ${minAsistenceEvent.name}</td>
-        <td>${maxCapacity} ${maxCapacityEvent.name}</td>`;
+    <td>${minAsistenceEvent.name} (${minAsistencePercentage.toFixed(2)}%)</td>
+    <td>${maxAsistenceEvent.name} (${maxAsistencePercentage.toFixed(2)}%)</td>
+    <td>${maxCapacityEvent.name} (${maxCapacity})</td>`;
 
   eventsFirstTable.innerHTML = stringFirstTable;
 }
 
-function categories(array) {
-  //categorias
+//categorias
+function upcomingEventsStatistics(array) {
   const allCategories = array.map((events) => events.category);
 
   const allCategoriesSorter = Array.from(
     new Set(allCategories.sort((a, b) => a.localeCompare(b)))
   );
 
-  //console.log(allCategoriesSorter);
-
-  //ganancias
-
   let stringSecondTable = ``;
+  //ganancias
+  allCategoriesSorter.forEach((category) => {
+    const allEventsCategories = array.filter(
+      (events) => category == events.category
+    );
 
-  allCategoriesSorter.forEach(category => {
-   
-
-    const allEventsCategories = array.filter((events) => category == events.category);
-    //console.log(allEventsCategories)
- 
     const allEstimate = allEventsCategories.map((events) => events.estimate);
-       // console.log(allEstimate)
- 
-       const revenues = allEstimate.reduce((acc,revenue,i)=> acc + revenue * allEventsCategories[i].price, 0 );
-   //console.log(revenues)
 
-   //Asistencia
+    const revenues = allEstimate.reduce(
+      (acc, revenue, i) => acc + revenue * allEventsCategories[i].price,
+      0
+    );
 
-   const allCapacityPerEvent = allEventsCategories.map((events) => events.capacity);
-  console.log(allCapacityPerEvent)
+    //Asistencia
 
+    const allCapacityPerEvent = allEventsCategories.map(
+      (events) => events.capacity
+    );
 
-  const sumOfAttenance = allEstimate.reduce((acc,estimate)=>acc + estimate);
+    const sumOfAttenance = allEstimate.reduce(
+      (acc, estimate) => acc + estimate
+    );
 
- // console.log(sumOfAttenance)
+    const sumOfCategories = allCapacityPerEvent.reduce(
+      (acc, capacity) => acc + capacity
+    );
 
- const sumOfCategories = allCapacityPerEvent.reduce((acc,capacity)=>acc + capacity);
-
- const percentageAttenance = (sumOfAttenance/sumOfCategories)*100;
- console.log(percentageAttenance)
+    const percentageAttenance = (sumOfAttenance / sumOfCategories) * 100;
 
     stringSecondTable += `
     <tr>
-      <td>${category}</td>
+      <td class="td-category">${category}</td>
       <td>$${revenues}</td>
       <td>${percentageAttenance.toFixed(2)} %</td>
     </tr>
     
   `;
+  });
 
-});
- 
   eventsSecondTable.innerHTML = stringSecondTable;
- 
 }
 
-// Porcentaje de asistencia: (asistencia / capacidad) x 100. (asistencia = assistance o estimate).
+function pastEventsStatistics(array) {
+  const allCategories = array.map((events) => events.category);
 
-// porcentaje: suman toda la asistencia de los eventos de esa categoría, después suman toda la capacidad de los eventos de esa categoría y ahí hacen el porcentaje total.
+  const allCategoriesSorter = Array.from(
+    new Set(allCategories.sort((a, b) => a.localeCompare(b)))
+  );
+
+  //ganancias
+
+  let stringThirdTable = ``;
+
+  allCategoriesSorter.forEach((category) => {
+    const allEventsCategories = array.filter(
+      (events) => category == events.category
+    );
+
+    const allAssistance = allEventsCategories.map(
+      (events) => events.assistance
+    );
+
+    const revenues = allAssistance.reduce(
+      (acc, revenue, i) => acc + revenue * allEventsCategories[i].price,
+      0
+    );
+
+    //Asistencia
+    const allCapacityPerEvent = allEventsCategories.map(
+      (events) => events.capacity
+    );
+
+    const sumOfAttenance = allAssistance.reduce(
+      (acc, assistance) => acc + assistance
+    );
+
+    const sumOfCategories = allCapacityPerEvent.reduce(
+      (acc, capacity) => acc + capacity
+    );
+
+    const percentageAttenance = (sumOfAttenance / sumOfCategories) * 100;
+
+    stringThirdTable += `
+    <tr>
+      <td class="td-category">${category}</td>
+      <td>$${revenues}</td>
+      <td>${percentageAttenance.toFixed(2)} %</td>
+    </tr>
+    
+  `;
+  });
+
+  eventsThirdTable.innerHTML = stringThirdTable;
+}
