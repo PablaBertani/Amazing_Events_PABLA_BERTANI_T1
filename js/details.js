@@ -4,7 +4,8 @@ fetch("https://mindhub-xj03.onrender.com/api/amazing")
     const allEvents = events.events; 
 
     const params = new URLSearchParams(location.search);
-
+    const conteinerCard = document.getElementById("conteiner-cardDetails");
+    
 let id = params.get("id");
 console.log(id);
 
@@ -53,7 +54,7 @@ detailsHtml += `
     `;
     conteinerCard.innerHTML = detailsHtml;
 
-    const conteinerCard = document.getElementById("conteiner-cardDetails");
+   
   });
 
 
